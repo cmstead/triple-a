@@ -1,0 +1,16 @@
+{
+  "name": "test-triple-a",
+  "version": "1.0.0",
+  "description": "The Arrange-Act-Assert testing library to help keep tests focused",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha ./test/**/*.test.js"
+  },
+  "keywords": [
+    "testing",
+    "tdd",
+    "arrange-act-assert"
+  ],
+  "author": "Chris Stead",
+  "license": "MPL-2.0"
+}
