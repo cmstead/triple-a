@@ -4,7 +4,7 @@
   "description": "The Arrange-Act-Assert testing library to help keep tests focused",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha ./test/**/*.test.js"
+    "test": "node ./test-system/test ./tests"
   },
   "keywords": [
     "testing",
@@ -12,5 +12,8 @@
     "arrange-act-assert"
   ],
   "author": "Chris Stead",
-  "license": "MPL-2.0"
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
 }

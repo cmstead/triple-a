@@ -3,6 +3,7 @@ const TestSuite = require('./TestSuite');
 function TestRun() {
     this.testSuites = [];
     this.testSuite = this.testSuite.bind(this);
+    this.startRun = Date.now();
 
     setTimeout(() => {
         const testSuiteOutcomes = this.testSuites.map(testSuite => testSuite.run());
@@ -13,6 +14,7 @@ function TestRun() {
 
 TestRun.prototype = {
     reportTestOutcomes: function () {
+        const endRun = Date.now();
         const testCaseResults = this.getTestCaseResults();
 
         const totalTests = testCaseResults.length;
@@ -20,10 +22,10 @@ TestRun.prototype = {
 
         this.displayResults();
 
-        console.log(`
-Total tests: ${totalTests}
+        console.log(`Total tests: ${totalTests}
 Passed: ${testsPassed}
 Failed: ${totalTests - testsPassed}
+Total Run Time: ${endRun - this.startRun}ms
 `);
         if (testsPassed !== totalTests) {
             console.log('\nTests failed! Check output for details.\n');
@@ -50,6 +52,7 @@ Failed: ${totalTests - testsPassed}
     displayResults: function () {
         this.testSuites.forEach(function (testSuite) {
             testSuite.displayResults();
+            console.log('');
         });
     }
 };

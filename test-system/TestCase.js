@@ -19,8 +19,12 @@ TestCase.prototype = {
     
             if(isThenable(testResult)) {
                 return testResult
-                    .then(() => this.setPassResult())
-                    .catch((error) => this.setFailResult(error));
+                    .then(() => {
+                        return this.setPassResult()
+                    })
+                    .catch((error) => {
+                        return this.setFailResult(error)
+                    });
             } else {
                 this.setPassResult();
                 return Promise.resolve(this.testResult);
