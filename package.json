@@ -1,10 +1,13 @@
 {
-  "name": "test-triple-a",
+  "name": "triple-a",
   "version": "1.0.0",
   "description": "The Arrange-Act-Assert testing library to help keep tests focused",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test-system/test ./tests"
+    "test": "node ./test-system/test ./tests",
+    "build": "npm run build-dist & npm run build-readme",
+    "build-dist": "node node_modules/browserify/bin/cmd.js -p tinyify web-index.js -o ./dist/triple-a.js",
+    "build-readme": "node node_modules/booklisp/index.js ./readme-src/readme.md ./README.md"
   },
   "keywords": [
     "testing",
@@ -14,6 +17,9 @@
   "author": "Chris Stead",
   "license": "MPL-2.0",
   "devDependencies": {
-    "chai": "^4.2.0"
+    "booklisp": "^2.0.0",
+    "browserify": "^16.5.2",
+    "chai": "^4.2.0",
+    "tinyify": "^3.0.0"
   }
 }
